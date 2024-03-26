@@ -154,7 +154,7 @@ ORDER BY good;
 
 Задание 26: Определить группы товаров, которые не приобретались в 2005 году
 ГРУППЫ, ТОВАРЫ, КОГДА ПРИОБРЕТАЛИСЬ:
-SELECT good_type_name, good_name, good_id, good, payment_id, date FROM Goods                                                       JOIN Payments ON  Goods.good_id = Payments.good
+SELECT good_type_name, good_name, good_id, good, payment_id, date FROM Goods JOIN Payments ON  Goods.good_id = Payments.good
 JOIN GoodTypes ON GoodTypes.good_type_id = Goods.type;
 
 РЕШЕНИЕ:
@@ -245,7 +245,7 @@ SELECT FLOOR(MAX((DATEDIFF(NOW(), birthday)/365))) AS max_year FROM Student
 JOIN Student_in_class ON Student.id=Student_in_class.student
 JOIN Class ON Class.id=Student_in_class.class WHERE Class.name LIKE '10%';
 
-							Задание 45: Какой(ие) кабинет(ы) пользуются самым большим спросом?
+Задание 45: Какой(ие) кабинет(ы) пользуются самым большим спросом?
 SELECT classroom, COUNT(classroom) as count  FROM Schedule 
 GROUP BY classroom
 HAVING COUNT(*) > 4
@@ -317,7 +317,7 @@ INSERT INTO Reviews (id, reservation_id, rating) VALUES (23, 2, 5);
 Задание 59: Вывести пользователей,указавших Белорусский номер телефона ? Телефонный код Белоруссии +375.
 SELECT * FROM Users WHERE phone_number LIKE '+375%';
 
-						Задание 60: Выведите идентификаторы преподавателей, которые хотя бы один раз за всё время преподавали в каждом из одиннадцатых классов.
+Задание 60: Выведите идентификаторы преподавателей, которые хотя бы один раз за всё время преподавали в каждом из одиннадцатых классов.
 SELECT teacher FROM Schedule
 JOIN Teacher ON Teacher.id=Schedule.teacher
 JOIN Subject ON Subject.id=Schedule.subject
@@ -342,7 +342,7 @@ ORDER BY count DESC, domain ASC;
 SELECT CONCAT(last_name, '.', LEFT(first_name, 1), '.', LEFT(middle_name, 1), '.') AS name FROM Student ORDER BY first_name ASC;
 
 
-					Задание 64: Выведите имена всех пар пассажиров, летевших вместе на одном рейсе два или более раз, и количество таких совместных рейсов. В passengerName1 разместите имя пассажира с наименьшим идентификатором.
+Задание 64: Выведите имена всех пар пассажиров, летевших вместе на одном рейсе два или более раз, и количество таких совместных рейсов. В passengerName1 разместите имя пассажира с наименьшим идентификатором.
 
 
 
@@ -357,7 +357,3 @@ SELECT home_type, address, COALESCE(SUM(DATEDIFF(end_date, start_date)), 0) as d
 RIGHT JOIN Rooms ON Rooms.id=Reservations.room_id
 WHERE has_tv !=0 AND has_internet !=0 AND has_kitchen !=0 AND has_air_con !=0
 GROUP BY address, home_type;
-
-
-
-
