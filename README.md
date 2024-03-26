@@ -145,7 +145,7 @@ LEFT JOIN Payments ON
 WHERE  Payments.good IS NULL
 GROUP BY good_id;
 
-				ЕЩЕ ОДНО РЕШЕНИЕ:
+ЕЩЕ ОДНО РЕШЕНИЕ:
 SELECT good_name, good_id, good, date FROM Goods as g 
 LEFT OUTER JOIN Payments as p
 ON g.good_id = p.good
